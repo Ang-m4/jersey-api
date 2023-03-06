@@ -39,8 +39,9 @@ public class TripResource {
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Path("{id}")
-    public Trip updateTrip(@PathParam("id") int id, @QueryParam("source") String source, @QueryParam("target") String target ){
+    public Trip updateTrip(@PathParam("id") int id,
+                           @QueryParam("source") String source,
+                           @QueryParam("target") String target ){
         return TripSerializer.updateTrip(id,source,target);
     }
-
 }
