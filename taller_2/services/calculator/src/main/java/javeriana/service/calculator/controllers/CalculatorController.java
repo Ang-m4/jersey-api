@@ -23,4 +23,19 @@ public class CalculatorController {
     public int add(@RequestParam int a, @RequestParam int b) {
         return restTemplate.getForObject("http://add/add?a={a}&b={b}", int.class, a, b);
     }
+
+    @GetMapping("calculator/substract")
+    public int substract(@RequestParam int a, @RequestParam int b) {
+        return restTemplate.getForObject("http://substract/substract?a={a}&b={b}", int.class, a, b);
+    }
+
+    @GetMapping("calculator/multiply")
+    public int multiply(@RequestParam int a, @RequestParam int b) {
+        return restTemplate.getForObject("http://multiply/multiply?a={a}&b={b}", int.class, a, b);
+    }
+
+    @GetMapping("calculator/divide")
+    public int divide(@RequestParam int a, @RequestParam int b) {
+        return restTemplate.getForObject("http://divide/divide?a={a}&b={b}", int.class, a, b);
+    }
 }
