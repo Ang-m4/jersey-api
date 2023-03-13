@@ -21,6 +21,30 @@ services:
     container_name: add
     image: d4ramirez/add:latest
     environment:
-      - SERVER_PORT=9999
+      - SERVER_PORT=1010
     ports:
-      - 9999:9999
+      - 1010:1010
+  
+  substract:
+    container_name: substract
+    image: d4ramirez/substract:latest
+    environment:
+      - SERVER_PORT=2020
+    ports:
+      - 2020:2020
+  
+  multiply:
+    container_name: multiply
+    image: d4ramirez/multiply:latest
+    environment:
+      - SERVER_PORT=3030
+    ports:
+      - 3030:3030
+  
+  divide:
+    container_name: divide
+    image: d4ramirez/divide:latest
+    environment:
+      - SERVER_PORT=4040
+    ports:
+      - 4040:4040
