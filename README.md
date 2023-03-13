@@ -1,1 +1,0 @@
-# Jersey trips API 🛩️
