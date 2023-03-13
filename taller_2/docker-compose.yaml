@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  eureka:
+    container_name: eureka
+    image: d4ramirez/discovery:latest
+    environment:
+      - SERVER_PORT=8671
+    ports:
+      - 8761:8761
+
+  calculator:
+    container_name: calculator
+    image: d4ramirez/calculator:latest
+    environment:
+      - SERVER_PORT=8888
+    ports:
+      - 8888:8888
+
+  add:
+    container_name: add
+    image: d4ramirez/add:latest
+    environment:
+      - SERVER_PORT=9999
+    ports:
+      - 9999:9999
