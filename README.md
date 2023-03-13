@@ -1,8 +1,8 @@
-# Jersey trips API 🛩️
+# Taller modulo REST 🛩🛤️
 
-Jersey API for a microservices course at Pontificia Universidad Javeriana Bogotá D.C.
+Taller 1 y 2 para el modulo de REST para la clase de microservicios en la Pontificia Universidad Javeriana Bogotá D.C.
 
-## Authors 👥
+## Autores 👥
 
 - [@Ang-m4](https://www.github.com/Ang-m4)
 - [@D4-Ramirez](https://www.github.com/D4-Ramirez)
