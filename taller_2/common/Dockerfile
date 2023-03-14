@@ -4,7 +4,7 @@ COPY /src ./src
 COPY /pom.xml .
 RUN mvn clean package -D skipTests
 
-FROM openjdk:20-ea-17-jdk
+FROM openjdk:20-ea-17-jdk AS runner
 ARG DEPENDENCY=/home/app
 COPY --from=build ${DEPENDENCY}/target/*.jar app.jar
 ENV SERVER_PORT=8080
