@@ -2,17 +2,15 @@ version: "3"
 
 services:
   eureka:
-    container_name: eureka
     build:
       context: "./services/service-discovery"
       dockerfile: "../../common/Dockerfile"
     environment:
-      - SERVER_PORT=8671
+      - SERVER_PORT=8761
     ports:
       - 8761:8761
 
   calculator:
-    container_name: calculator
     build:
       context: "./services/calculator"
       dockerfile: "../../common/Dockerfile"
@@ -24,53 +22,49 @@ services:
       - eureka
 
   add:
-    container_name: add
     build:
       context: "./services/add"
       dockerfile: "../../common/Dockerfile"
     environment:
       - SERVER_PORT=1010
     ports:
-      - 1010:1010
+      - "1010"
     depends_on:
       - eureka
       - calculator
   
   substract:
-    container_name: substract
     build:
       context: "./services/substract"
       dockerfile: "../../common/Dockerfile"
     environment:
       - SERVER_PORT=2020
     ports:
-      - 2020:2020
+      - "2020"
     depends_on:
       - eureka
       - calculator
   
   multiply:
-    container_name: multiply
     build:
       context: "./services/multiply"
       dockerfile: "../../common/Dockerfile"
     environment:
       - SERVER_PORT=3030
     ports:
-      - 3030:3030
+      - "3030"
     depends_on:
       - eureka
       - calculator
   
   divide:
-    container_name: divide
     build:
       context: "./services/divide"
       dockerfile: "../../common/Dockerfile"
     environment:
       - SERVER_PORT=4040
     ports:
-      - 4040:4040
+      - "4040"
     depends_on:
       - eureka
       - calculator
