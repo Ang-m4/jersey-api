@@ -26,7 +26,7 @@ public class CalculatorController {
 
     @GetMapping("calculator/substract")
     public int substract(@RequestParam int a, @RequestParam int b) {
-        return restTemplate.getForObject("http://substract/subsctract?a={a}&b={b}", int.class, a, b);
+        return restTemplate.getForObject("http://substract/substract?a={a}&b={b}", int.class, a, b);
     }
 
     @GetMapping("calculator/multiply")
