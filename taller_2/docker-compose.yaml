@@ -1,5 +1,7 @@
 version: "3"
 
+name: calculator-app
+
 services:
   eureka:
     build:
@@ -18,8 +20,13 @@ services:
       - SERVER_PORT=8888
     ports:
       - 8888:8888
+    restart: always
     depends_on:
       - eureka
+      - add
+      - substract
+      - multiply
+      - divide
 
   add:
     build:
@@ -29,9 +36,9 @@ services:
       - SERVER_PORT=1010
     ports:
       - "1010"
+    restart: always
     depends_on:
       - eureka
-      - calculator
   
   substract:
     build:
@@ -41,9 +48,9 @@ services:
       - SERVER_PORT=2020
     ports:
       - "2020"
+    restart: always
     depends_on:
       - eureka
-      - calculator
   
   multiply:
     build:
@@ -53,9 +60,9 @@ services:
       - SERVER_PORT=3030
     ports:
       - "3030"
+    restart: always
     depends_on:
       - eureka
-      - calculator
   
   divide:
     build:
@@ -65,6 +72,6 @@ services:
       - SERVER_PORT=4040
     ports:
       - "4040"
+    restart: always
     depends_on:
       - eureka
-      - calculator
