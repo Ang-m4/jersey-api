@@ -1,26 +1,77 @@
 version: "3"
 
+name: calculator-app
+
 services:
   eureka:
-    container_name: eureka
-    image: d4ramirez/discovery:latest
+    build:
+      context: "./services/service-discovery"
+      dockerfile: "../../common/Dockerfile"
     environment:
-      - SERVER_PORT=8671
+      - SERVER_PORT=8761
     ports:
       - 8761:8761
 
   calculator:
-    container_name: calculator
-    image: d4ramirez/calculator:latest
+    build:
+      context: "./services/calculator"
+      dockerfile: "../../common/Dockerfile"
     environment:
       - SERVER_PORT=8888
     ports:
       - 8888:8888
+    restart: always
+    depends_on:
+      - eureka
+      - add
+      - substract
+      - multiply
+      - divide
 
   add:
-    container_name: add
-    image: d4ramirez/add:latest
+    build:
+      context: "./services/add"
+      dockerfile: "../../common/Dockerfile"
     environment:
-      - SERVER_PORT=9999
+      - SERVER_PORT=1010
     ports:
-      - 9999:9999
+      - "1010"
+    restart: always
+    depends_on:
+      - eureka
+  
+  substract:
+    build:
+      context: "./services/substract"
+      dockerfile: "../../common/Dockerfile"
+    environment:
+      - SERVER_PORT=2020
+    ports:
+      - "2020"
+    restart: always
+    depends_on:
+      - eureka
+  
+  multiply:
+    build:
+      context: "./services/multiply"
+      dockerfile: "../../common/Dockerfile"
+    environment:
+      - SERVER_PORT=3030
+    ports:
+      - "3030"
+    restart: always
+    depends_on:
+      - eureka
+  
+  divide:
+    build:
+      context: "./services/divide"
+      dockerfile: "../../common/Dockerfile"
+    environment:
+      - SERVER_PORT=4040
+    ports:
+      - "4040"
+    restart: always
+    depends_on:
+      - eureka
