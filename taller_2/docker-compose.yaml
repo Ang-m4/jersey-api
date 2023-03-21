@@ -24,7 +24,7 @@ services:
     depends_on:
       - eureka
       - add
-      - substract
+      - subtract
       - multiply
       - divide
 
@@ -40,9 +40,9 @@ services:
     depends_on:
       - eureka
   
-  substract:
+  subtract:
     build:
-      context: "./services/substract"
+      context: "./services/subtract"
       dockerfile: "../../common/Dockerfile"
     environment:
       - SERVER_PORT=2020
