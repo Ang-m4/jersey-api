@@ -1,4 +1,4 @@
-package com.javeriana.service.substract;
+package com.javeriana.service.subtract;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
